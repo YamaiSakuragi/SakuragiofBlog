@@ -21,8 +21,7 @@
         .link { display: flex; align-items: center; text-decoration: none; color: #1d1d1f; padding: 8px; border-radius: 8px; font-size: 14px; transition: 0.2s; }
         .link:hover { background: #f0f0f2; }
         
-        /* 内联 SVG 图标统一样式，跟随文字颜色 */
-        .icon { width: 18px; height: 18px; margin-right: 12px; flex-shrink: 0; color: currentColor; fill: currentColor; }
+        /* 统一线框图标样式 */
         .icon-stroke { width: 18px; height: 18px; margin-right: 12px; flex-shrink: 0; color: currentColor; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         
         .content { padding: 40px; flex: 1; display: flex; flex-direction: column; gap: 30px; min-width: 0; }
@@ -49,11 +48,10 @@
 <body>
 
 <div class="wrapper">
-    <!-- 语言切换按钮 (Google Translate 线框图标) -->
+    <!-- Google Translate 线框图标 -->
     <button class="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">
-        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16.5,42.6L32.3,5.5M30,22.4l10.1,2.4M36.3,20.2v3.6M24.7,40c2.6-4,5.7-7.5,13.6-10.7M28.5,26.4c3.6,3.2,6.5,7.2,8.5,11.6M14.8,15h4.9c0,2.7-2.1,4.9-4.8,5,0,0,0,0,0,0-2.8,0-5-2.3-5-5s2.3-5,5-5c.8,0,1.7.2,2.4.6"/>
-            <path d="M38.5,5.5H9.5c-2.2,0-4,1.8-4,4v29c0,2.2,1.8,4,4,4h29c2.2,0,4-1.8,4-4V9.5c0-2.2-1.8-4-4-4Z"/>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>
         </svg>
     </button>
 
@@ -65,40 +63,37 @@
             <div class="links">
                 <!-- GitHub -->
                 <a href="https://github.com/YamaiSakuragi" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                     GitHub
                 </a>
-                <!-- Telegram Sakuragi Group -->
+                <!-- Telegram Group -->
                 <a href="https://t.me/ohh676791781366" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.375-1.297-.792.027-.217.327-.443.899-.677 3.502-1.526 5.836-2.533 7.004-3.021 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                     Sakuragi Group
                 </a>
                 <!-- Telegram Profile -->
                 <a href="https://t.me/YamaiSakuragi" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.375-1.297-.792.027-.217.327-.443.899-.677 3.502-1.526 5.836-2.533 7.004-3.021 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                     Telegram Profile
                 </a>
                 <!-- YouTube -->
                 <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                     YouTube
                 </a>
-                <!-- Douyin (TikTok icon) -->
+                <!-- Douyin -->
                 <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.97-.01 3.07.02 6.13-.04 9.19-.07 2.21-.74 4.44-2.35 5.96-2.17 2.06-5.5 2.4-8.06.86-2.17-1.3-3.42-3.94-3.05-6.47.38-2.85 2.85-5.21 5.76-5.3 1.1-.04 2.21.12 3.22.61V16.9c-1.07-.55-2.45-.43-3.34.39-.84.76-1.09 2.05-.64 3.09.42.98 1.48 1.65 2.55 1.53 1.34-.1 2.48-1.21 2.54-2.57.03-5.7.02-11.4.02-17.1-.01-.7 0-1.4.05-2.1z"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
                     Douyin
                 </a>
-                <!-- X (Twitter) -->
+                <!-- X -->
                 <a href="https://x.com/YamaiSakuragi" target="_blank" class="link">
-                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16"/><path d="M4 20L20 4"/></svg>
                     Twitter / X
                 </a>
-                <!-- Email (CSS / 标准信封矢量) -->
+                <!-- Email -->
                 <a href="mailto:caiyutaojing695@gmail.com" class="link">
-                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
+                    <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     Email
                 </a>
             </div>
@@ -117,7 +112,19 @@
             <div>
                 <div class="section-title" data-en="Skills" data-zh="技术栈">Skills</div>
                 <div class="skills">
-                    <span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Sh</span>
+                    <span class="tag">C</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Smali</span>
+                    <span class="tag">Shell</span>
+                    <span class="tag">GTK</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Android</span>
+                    <span class="tag">ADB</span>
                 </div>
             </div>
 
@@ -159,6 +166,7 @@
         });
     }
 
+    // 移除了原版的字体检测黑屏逻辑
     const img = document.getElementById('artImg');
     if (img) {
         const test = new Image();
