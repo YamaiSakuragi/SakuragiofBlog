@@ -21,7 +21,6 @@
         .link { display: flex; align-items: center; text-decoration: none; color: #1d1d1f; padding: 8px; border-radius: 8px; font-size: 14px; transition: 0.2s; }
         .link:hover { background: #f0f0f2; }
         
-        /* 统一线框图标样式 */
         .icon-stroke { width: 18px; height: 18px; margin-right: 12px; flex-shrink: 0; color: currentColor; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         
         .content { padding: 40px; flex: 1; display: flex; flex-direction: column; gap: 30px; min-width: 0; }
@@ -48,7 +47,6 @@
 <body>
 
 <div class="wrapper">
-    <!-- Google Translate 线框图标 -->
     <button class="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/>
@@ -61,37 +59,30 @@
             <div class="name">YamaiSakuragi</div>
             <div class="sub">山井樱木</div>
             <div class="links">
-                <!-- GitHub -->
                 <a href="https://github.com/YamaiSakuragi" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                     GitHub
                 </a>
-                <!-- Telegram Group -->
                 <a href="https://t.me/ohh676791781366" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                     Sakuragi Group
                 </a>
-                <!-- Telegram Profile -->
                 <a href="https://t.me/YamaiSakuragi" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
                     Telegram Profile
                 </a>
-                <!-- YouTube -->
                 <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
                     YouTube
                 </a>
-                <!-- Douyin -->
                 <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
                     Douyin
                 </a>
-                <!-- X -->
                 <a href="https://x.com/YamaiSakuragi" target="_blank" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l16 16"/><path d="M4 20L20 4"/></svg>
                     Twitter / X
                 </a>
-                <!-- Email -->
                 <a href="mailto:caiyutaojing695@gmail.com" class="link">
                     <svg class="icon-stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                     Email
@@ -142,9 +133,11 @@
                 <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
                 <div class="layout">
                     <div class="layout-text text">
-                        <p data-en="<strong>Team Mascot:</strong> The official mascot of the team." data-zh="<strong>吉祥物：</strong>作为团队的官方吉祥物。"><strong>Team Mascot:</strong> The official mascot of the team.</p>
-                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。"><strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.</p>
-                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。"><strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.</p>
+                        <p data-en="<strong>Name:</strong> Yamai Sakuragi (ヤマイ・サクラギ)" data-zh="<strong>姓名：</strong>山井樱木（ヤマイ・サクラギ）"><strong>Name:</strong> Yamai Sakuragi (ヤマイ・サクラギ)</p>
+                        <p data-en="<strong>Birthday:</strong> March 30, 2007" data-zh="<strong>生日：</strong>2007年3月30日"><strong>Birthday:</strong> March 30, 2007</p>
+                        <p data-en="<strong>Attributes:</strong> Long hair. Looks cold and aloof on the outside, but is actually a huge homebody (Otaku girl) — an extreme contrast." data-zh="<strong>属性：</strong>长发。表面上看起来很清冷，实际上是个大宅女，极其反差。"><strong>Attributes:</strong> Long hair. Looks cold and aloof on the outside, but is actually a huge homebody (Otaku girl) — an extreme contrast.</p>
+                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。"><strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.</p>
+                        <p data-en="<strong>Core:</strong> Narcissist. Enjoys masturbation. Loves drinking Monster Energy." data-zh="<strong>核心设定：</strong>水仙（自恋）。喜欢自慰。爱喝魔爪。"><strong>Core:</strong> Narcissist. Enjoys masturbation. Loves drinking Monster Energy.</p>
                     </div>
                     <img src="./3.png" id="artImg" class="art" alt="Art">
                 </div>
@@ -166,7 +159,6 @@
         });
     }
 
-    // 移除了原版的字体检测黑屏逻辑
     const img = document.getElementById('artImg');
     if (img) {
         const test = new Image();
