@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YamaiSakuragi - Portfolio</title>
     <style>
-        /* 强制加载 one.ttf，无备用降级 */
         @font-face {
             font-family: 'CreamFont';
             src: url('./one.ttf') format('truetype');
@@ -29,7 +28,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'CreamFont', monospace; 
+            font-family: 'CreamFont', sans-serif; 
         }
 
         body {
@@ -48,7 +47,6 @@
             max-width: 900px;
         }
 
-        /* 语言切换按钮 */
         .lang-toggle {
             position: absolute;
             top: -35px;
@@ -78,7 +76,6 @@
             display: block;
         }
 
-        /* 双栏布局 */
         .main-wrapper {
             display: flex;
             width: 100%;
@@ -108,11 +105,6 @@
             border: 3px solid var(--card-bg);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.05);
         }
 
         h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
@@ -185,7 +177,6 @@
             transform: translateX(3px);
         }
 
-        /* 这里使用你的头像作为每个链接的图标 */
         .brand-icon {
             width: 18px;
             height: 18px;
@@ -193,7 +184,6 @@
             margin-right: 12px;
             object-fit: cover;
             flex-shrink: 0;
-            /* 稍微降低亮度，跟黑白灰融合 */
             filter: grayscale(100%) brightness(0.9); 
         }
 
@@ -268,8 +258,8 @@
                 <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" alt="Avatar" class="avatar">
                 <h1>YamaiSakuragi</h1>
                 
-                <div class="admin-badge" data-en="Admin of ZT (ZeroTermux) Telegram Group" data-zh="ZeroTermux (ZT) 社区 纸飞机交流群 大管理员">
-                    Admin of ZT (ZeroTermux) Telegram Group
+                <div class="admin-badge" data-en="ZeroTermux Telegram Group Administrator" data-zh="ZeroTermux Telegram 群组管理员">
+                    ZeroTermux Telegram Group Administrator
                 </div>
                 
                 <div class="subtitle" data-en="Yamai Sakuragi · Creator" data-zh="山井樱木 · 创作者">
@@ -284,7 +274,6 @@
                     <span class="skill-tag">Sh</span>
                 </div>
 
-                <!-- 链接图标统一换成你的头像 -->
                 <div class="links">
                     <a href="https://github.com/YamaiSakuragi" target="_blank" class="link-item">
                         <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
@@ -322,14 +311,14 @@
                     <div class="section-title" data-en="About The Creator" data-zh="关于创作者">About The Creator</div>
                     <div class="info-card">
                         <h3 data-en="Creator Profile" data-zh="创作者档案">Creator Profile</h3>
-                        <p data-en="<strong>Role:</strong> Head Admin of ZeroTermux (ZT) Telegram Community." data-zh="<strong>身份：</strong>ZeroTermux (ZT) 社区 纸飞机交流群 大管理员。">
-                            <strong>Role:</strong> Head Admin of ZeroTermux (ZT) Telegram Community.
+                        <p data-en="<strong>Role:</strong> Administrator of the ZeroTermux Telegram Group." data-zh="<strong>职务：</strong>ZeroTermux Telegram 群组管理员。">
+                            <strong>Role:</strong> Administrator of the ZeroTermux Telegram Group.
                         </p>
-                        <p data-en="Able to independently complete cross-style creations ranging from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition." data-zh="具备完善的角色设计能力，能够独立完成从严谨三视图、高完成度平涂立绘，到Q版及表情包的跨风格创作。画风干净柔和，角色辨识度高。">
-                            Able to independently complete cross-style creations ranging from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition.
+                        <p data-en="Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition." data-zh="具备独立完成跨风格视觉设计的能力，涵盖严谨三视图、高完成度平涂立绘以及 Q 版和表情包。画风干净柔和，角色特征具有较高辨识度。">
+                            Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition.
                         </p>
-                        <p data-en="Character shaping is not limited to visual appearances but endows the character with a deep soul and sense of contrast, building a complete character matrix (including illustrations, stickers, and potential Live2D/desktop pet foundations)." data-zh="角色塑造不局限于视觉表象，而是赋予了角色深刻的灵魂与反差感，并以此构建了完整的角色矩阵（涵盖插画、表情包，以及潜在的Live2D/桌宠开发底稿）。">
-                            Character shaping is not limited to visual appearances but endows the character with a deep soul and sense of contrast, building a complete character matrix (including illustrations, stickers, and potential Live2D/desktop pet foundations).
+                        <p data-en="Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development." data-zh="角色设计不局限于视觉表现，而是结合了结构化的角色矩阵与反差特征，应用于插画、表情包以及潜在的 Live2D/桌宠开发。">
+                            Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development.
                         </p>
                     </div>
                 </div>
@@ -338,14 +327,14 @@
                     <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
                     <div class="info-card">
                         <h3 data-en="Yamai Sakuragi" data-zh="山井樱木 (Yamai Sakuragi)">Yamai Sakuragi</h3>
-                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。">
-                            <strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.
+                        <p data-en="<strong>Visuals:</strong> Minimalist and cool black/white/grey tones. Features include dark grey long curly hair, a white loose coat, black pleated skirt, white over-knee socks, and cat-ear-like head decorations. The deep, wandering gaze presents a quiet, introverted, doll-like appearance." data-zh="<strong>视觉形象：</strong>采用极简、清冷的黑白灰冷色调。特征包括深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜以及头顶类似猫耳的装饰。眼神深邃游离，呈现出安静、内向的人偶感。">
+                            <strong>Visuals:</strong> Minimalist and cool black/white/grey tones. Features include dark grey long curly hair, a white loose coat, black pleated skirt, white over-knee socks, and cat-ear-like head decorations. The deep, wandering gaze presents a quiet, introverted, doll-like appearance.
                         </p>
-                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。">
-                            <strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.
+                        <p data-en="<strong>Core:</strong> Conceived as a 2D avatar of the creator, she possesses a meta-narrative attribute that breaks the fourth wall. She is aware of her digital existence and her status as a creation. An absolute, unique cross-dimensional symbiotic relationship is established with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者的二次元分身，具有打破第四面墙的元叙事属性。她知晓自身的数字存在状态以及被创造的身份。与屏幕外的创作者建立起绝对的、唯一的跨次元共生关系。">
+                            <strong>Core:</strong> Conceived as a 2D avatar of the creator, she possesses a meta-narrative attribute that breaks the fourth wall. She is aware of her digital existence and her status as a creation. An absolute, unique cross-dimensional symbiotic relationship is established with the creator outside the screen.
                         </p>
-                        <p data-en="<strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror." data-zh="<strong>反差萌：</strong>安静内向的外表下，隐藏着举着“禁止”牌吐槽的活泼内核，是一面微甜又略带执念的赛博镜子。">
-                            <strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror.
+                        <p data-en="<strong>Contrast:</strong> The quiet and introverted exterior contrasts with an active core that holds a 'Prohibited' sign for complaining, serving as a digital reflection with a subtle, persistent tone." data-zh="<strong>反差特征：</strong>安静内向的外表与举着“禁止”牌进行吐槽的活跃内核形成反差，作为带有轻微、执念基调的数字投影存在。">
+                            <strong>Contrast:</strong> The quiet and introverted exterior contrasts with an active core that holds a 'Prohibited' sign for complaining, serving as a digital reflection with a subtle, persistent tone.
                         </p>
                     </div>
                 </div>
@@ -355,7 +344,6 @@
     </div>
 
     <script>
-        // 多语言切换
         let currentLang = 'en';
         function toggleLang() {
             currentLang = currentLang === 'en' ? 'zh' : 'en';
@@ -364,19 +352,6 @@
                 el.innerHTML = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-zh');
             });
         }
-
-        // 无情字体检测
-        document.fonts.ready.then(function () {
-            if (!document.fonts.check('12px CreamFont')) {
-                const allElements = document.querySelectorAll('body *:not(script):not(style):not(svg):not(path):not(button)');
-                allElements.forEach(el => {
-                    if (el.children.length === 0 && el.textContent.trim() !== '') {
-                        el.textContent = ''; 
-                    }
-                });
-                document.body.style.backgroundColor = '#222';
-            }
-        });
     </script>
 </body>
 </html>
