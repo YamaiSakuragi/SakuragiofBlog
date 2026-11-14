@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YamaiSakuragi - Portfolio</title>
+    
+    <!-- 网站标签页图标 (你的头像) -->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/304915449?v=4?s=400">
+    
     <style>
         @font-face {
             font-family: 'CreamFont';
@@ -20,8 +24,6 @@
             --text-muted: #86868b;
             --border-color: #e5e5e5;
             --hover-bg: #f0f0f2;
-            --badge-bg: #1d1d1f;
-            --badge-text: #ffffff;
         }
 
         * {
@@ -86,65 +88,56 @@
             overflow: hidden;
         }
 
+        /* 标准的博客侧边栏 */
         .sidebar {
-            width: 320px;
+            width: 280px;
             padding: 40px 30px;
             border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
             flex-shrink: 0;
         }
 
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--card-bg);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        h1 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
-        
-        .admin-badge {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--badge-bg);
-            color: var(--badge-text);
-            font-size: 11px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
+        /* 干干净净的名字 */
+        h1 { 
+            font-size: 22px; 
+            font-weight: 600; 
+            margin-bottom: 4px; 
             text-align: center;
-            line-height: 1.4;
         }
 
         .subtitle {
             font-size: 14px;
             color: var(--text-muted);
             margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            text-align: center;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 30px;
         }
 
         .skill-tag {
             background-color: var(--bg-color);
             color: var(--text-main);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 500;
             border: 1px solid var(--border-color);
         }
@@ -152,9 +145,8 @@
         .links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             width: 100%;
-            margin-top: auto;
         }
 
         .link-item {
@@ -162,10 +154,9 @@
             align-items: center;
             text-decoration: none;
             color: var(--text-main);
-            background-color: var(--card-bg);
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            background-color: transparent;
+            padding: 8px 10px;
+            border-radius: 8px;
             font-weight: 500;
             font-size: 14px;
             transition: all 0.2s ease;
@@ -173,22 +164,17 @@
 
         .link-item:hover {
             background-color: var(--hover-bg);
-            border-color: #d1d1d6;
-            transform: translateX(3px);
         }
 
         .brand-icon {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            margin-right: 12px;
-            object-fit: cover;
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            fill: currentColor;
             flex-shrink: 0;
-            filter: grayscale(100%) brightness(0.9); 
         }
 
-        .link-item .name { flex-grow: 1; text-align: left; }
-
+        /* 标准的博客正文区 */
         .content {
             padding: 40px;
             flex-grow: 1;
@@ -198,33 +184,20 @@
         }
 
         .section-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: var(--text-main);
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .section-title::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background-color: var(--border-color);
-            margin-left: 15px;
+        .info-card p { 
+            font-size: 14px; 
+            line-height: 1.8; 
+            color: #333; 
+            margin-bottom: 12px; 
         }
-
-        .info-card {
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 25px;
-        }
-
-        .info-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--text-main); }
-        .info-card p { font-size: 14px; line-height: 1.7; color: #444; margin-bottom: 10px; }
         .info-card p:last-child { margin-bottom: 0; }
         .info-card strong { color: var(--text-main); }
 
@@ -254,17 +227,13 @@
         </button>
 
         <div class="main-wrapper">
+            <!-- 侧边栏 -->
             <div class="sidebar">
                 <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" alt="Avatar" class="avatar">
+                
+                <!-- 名字下面只留简介 -->
                 <h1>YamaiSakuragi</h1>
-                
-                <div class="admin-badge" data-en="ZeroTermux Telegram Group Administrator" data-zh="ZeroTermux Telegram 群组管理员">
-                    ZeroTermux Telegram Group Administrator
-                </div>
-                
-                <div class="subtitle" data-en="Yamai Sakuragi · Creator" data-zh="山井樱木 · 创作者">
-                    Yamai Sakuragi · Creator
-                </div>
+                <div class="subtitle">山井樱木</div>
                 
                 <div class="skills">
                     <span class="skill-tag">C++</span>
@@ -274,43 +243,44 @@
                     <span class="skill-tag">Sh</span>
                 </div>
 
+                <!-- 简洁的图标列表 -->
                 <div class="links">
                     <a href="https://github.com/YamaiSakuragi" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         <span class="name">GitHub</span>
                     </a>
                     <a href="https://t.me/ohh676791781366" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
-                        <span class="name">Sakuragi Group</span>
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        <span class="name">Telegram Channel</span>
                     </a>
                     <a href="https://t.me/YamaiSakuragi" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                         <span class="name">Telegram Profile</span>
                     </a>
                     <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         <span class="name">YouTube</span>
                     </a>
                     <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
                         <span class="name">Douyin</span>
                     </a>
                     <a href="https://x.com/YamaiSakuragi" target="_blank" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
                         <span class="name">Twitter / X</span>
                     </a>
                     <a href="mailto:caiyutaojing695@gmail.com" class="link-item">
-                        <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="brand-icon" alt="Icon">
+                        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         <span class="name">Email</span>
                     </a>
                 </div>
             </div>
 
+            <!-- 右侧主内容 (标准博客排版) -->
             <div class="content">
                 <div>
-                    <div class="section-title" data-en="About The Creator" data-zh="关于创作者">About The Creator</div>
+                    <div class="section-title" data-en="Profile" data-zh="个人简介">Profile</div>
                     <div class="info-card">
-                        <h3 data-en="Creator Profile" data-zh="创作者档案">Creator Profile</h3>
                         <p data-en="<strong>Role:</strong> Administrator of the ZeroTermux Telegram Group." data-zh="<strong>职务：</strong>ZeroTermux Telegram 群组管理员。">
                             <strong>Role:</strong> Administrator of the ZeroTermux Telegram Group.
                         </p>
@@ -326,15 +296,15 @@
                 <div>
                     <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
                     <div class="info-card">
-                        <h3 data-en="Yamai Sakuragi" data-zh="山井樱木 (Yamai Sakuragi)">Yamai Sakuragi</h3>
-                        <p data-en="<strong>Visuals:</strong> Minimalist and cool black/white/grey tones. Features include dark grey long curly hair, a white loose coat, black pleated skirt, white over-knee socks, and cat-ear-like head decorations. The deep, wandering gaze presents a quiet, introverted, doll-like appearance." data-zh="<strong>视觉形象：</strong>采用极简、清冷的黑白灰冷色调。特征包括深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜以及头顶类似猫耳的装饰。眼神深邃游离，呈现出安静、内向的人偶感。">
-                            <strong>Visuals:</strong> Minimalist and cool black/white/grey tones. Features include dark grey long curly hair, a white loose coat, black pleated skirt, white over-knee socks, and cat-ear-like head decorations. The deep, wandering gaze presents a quiet, introverted, doll-like appearance.
+                        <!-- 角色设定：原封不动还给你 -->
+                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。">
+                            <strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.
                         </p>
-                        <p data-en="<strong>Core:</strong> Conceived as a 2D avatar of the creator, she possesses a meta-narrative attribute that breaks the fourth wall. She is aware of her digital existence and her status as a creation. An absolute, unique cross-dimensional symbiotic relationship is established with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者的二次元分身，具有打破第四面墙的元叙事属性。她知晓自身的数字存在状态以及被创造的身份。与屏幕外的创作者建立起绝对的、唯一的跨次元共生关系。">
-                            <strong>Core:</strong> Conceived as a 2D avatar of the creator, she possesses a meta-narrative attribute that breaks the fourth wall. She is aware of her digital existence and her status as a creation. An absolute, unique cross-dimensional symbiotic relationship is established with the creator outside the screen.
+                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。">
+                            <strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.
                         </p>
-                        <p data-en="<strong>Contrast:</strong> The quiet and introverted exterior contrasts with an active core that holds a 'Prohibited' sign for complaining, serving as a digital reflection with a subtle, persistent tone." data-zh="<strong>反差特征：</strong>安静内向的外表与举着“禁止”牌进行吐槽的活跃内核形成反差，作为带有轻微、执念基调的数字投影存在。">
-                            <strong>Contrast:</strong> The quiet and introverted exterior contrasts with an active core that holds a 'Prohibited' sign for complaining, serving as a digital reflection with a subtle, persistent tone.
+                        <p data-en="<strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror." data-zh="<strong>反差萌：</strong>安静内向的外表下，隐藏着举着“禁止”牌吐槽的活泼内核，是一面微甜又略带执念的赛博镜子。">
+                            <strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror.
                         </p>
                     </div>
                 </div>
