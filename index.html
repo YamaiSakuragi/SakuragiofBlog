@@ -4,329 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YamaiSakuragi - Portfolio</title>
-    
-    <!-- 网站标签页图标 (你的头像) -->
     <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/304915449?v=4?s=400">
-    
     <style>
-        @font-face {
-            font-family: 'CreamFont';
-            src: url('./one.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: block; 
-        }
-
-        :root {
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --text-main: #1d1d1f;
-            --text-muted: #86868b;
-            --border-color: #e5e5e5;
-            --hover-bg: #f0f0f2;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'CreamFont', sans-serif; 
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .lang-toggle {
-            position: absolute;
-            top: -35px;
-            right: 0;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 8px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 10;
-        }
-
-        .lang-toggle:hover {
-            background-color: var(--hover-bg);
-            border-color: #d1d1d6;
-        }
-
-        .lang-icon {
-            width: 20px;
-            height: 20px;
-            color: var(--text-main);
-            display: block;
-        }
-
-        .main-wrapper {
-            display: flex;
-            width: 100%;
-            background-color: var(--card-bg);
-            border-radius: 24px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            margin-bottom: 20px;
-        }
-
-        .sidebar {
-            width: 280px;
-            padding: 40px 30px;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--card-bg);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            margin-bottom: 15px;
-        }
-
-        h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; text-align: center; }
-        .subtitle { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; text-align: center; }
-
+        @font-face { font-family: 'CreamFont'; src: url('./one.ttf') format('truetype'); font-display: block; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'CreamFont', sans-serif; }
+        body { background: #f5f5f7; color: #1d1d1f; display: flex; justify-content: center; padding: 40px 20px; min-height: 100vh; }
+        .wrapper { position: relative; width: 100%; max-width: 900px; }
+        .lang-toggle { position: absolute; top: -35px; right: 0; background: #fff; border: 1px solid #e5e5e5; padding: 6px 12px; border-radius: 8px; cursor: pointer; display: flex; gap: 6px; font-size: 14px; }
+        .main { display: flex; background: #fff; border-radius: 20px; border: 1px solid #e5e5e5; overflow: hidden; margin-bottom: 20px; }
+        .sidebar { width: 280px; padding: 40px 30px; border-right: 1px solid #e5e5e5; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+        .avatar { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 15px; border: 3px solid #e5e5e5; object-fit: cover; }
+        .name { font-size: 22px; font-weight: 600; margin-bottom: 4px; text-align: center; }
+        .sub { font-size: 14px; color: #86868b; margin-bottom: 30px; text-align: center; }
         .links { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-        .link-item {
-            display: flex; align-items: center; text-decoration: none;
-            color: var(--text-main); background-color: transparent;
-            padding: 8px 10px; border-radius: 8px; font-weight: 500; font-size: 14px;
-            transition: all 0.2s ease;
-        }
-        .link-item:hover { background-color: var(--hover-bg); }
-        .brand-icon { width: 16px; height: 16px; margin-right: 10px; fill: currentColor; flex-shrink: 0; }
-
-        .content {
-            padding: 40px; flex-grow: 1; display: flex; flex-direction: column; gap: 30px;
-            min-width: 0; 
-        }
-
-        .section-title {
-            font-size: 16px; font-weight: 600; color: var(--text-main);
-            margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid var(--border-color);
-        }
-
-        .info-card p { font-size: 14px; line-height: 1.8; color: #333; margin-bottom: 12px; }
-        .info-card p:last-child { margin-bottom: 0; }
-        .info-card strong { color: var(--text-main); }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 8px; }
-        .skill-tag {
-            background-color: var(--bg-color); color: var(--text-main);
-            padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
-            border: 1px solid var(--border-color);
-        }
-
-        /* 强制左字右图，自适应 */
-        .persona-layout {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            width: 100%;
-        }
-
-        .persona-text {
-            flex: 1; 
-            min-width: 0; 
-        }
-
-        .character-art {
-            width: 100%;
-            max-width: 200px; 
-            min-width: 90px; 
-            height: auto;
-            flex-shrink: 1; 
-            object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08));
-            border-radius: 12px;
-            opacity: 0; /* 没加载出来先隐藏 */
-            transition: opacity 0.3s ease;
-        }
-
-        .character-art.loaded { opacity: 1; }
-
-        .footer {
-            text-align: center; font-size: 12px; color: var(--text-muted); padding-bottom: 20px;
-        }
-
+        .link { display: flex; align-items: center; text-decoration: none; color: #1d1d1f; padding: 8px; border-radius: 8px; font-size: 14px; transition: 0.2s; }
+        .link:hover { background: #f0f0f2; }
+        .icon { width: 18px; height: 18px; margin-right: 12px; object-fit: contain; }
+        .content { padding: 40px; flex: 1; display: flex; flex-direction: column; gap: 30px; min-width: 0; }
+        .section-title { font-size: 16px; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; margin-bottom: 15px; }
+        .text p { font-size: 14px; line-height: 1.8; margin-bottom: 12px; color: #333; }
+        .text p:last-child { margin-bottom: 0; }
+        .text strong { color: #1d1d1f; }
+        .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f5f5f7; padding: 6px 12px; border-radius: 6px; font-size: 13px; border: 1px solid #e5e5e5; }
+        .layout { display: flex; gap: 20px; align-items: flex-start; }
+        .layout-text { flex: 1; min-width: 0; }
+        .art { width: 100%; max-width: 200px; min-width: 90px; flex-shrink: 1; height: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); border-radius: 12px; opacity: 0; transition: 0.3s; }
+        .art.loaded { opacity: 1; }
+        .footer { text-align: center; font-size: 12px; color: #86868b; }
         @media (max-width: 768px) {
             body { padding: 60px 10px 20px 10px; }
-            .wrapper { max-width: 100%; }
-            .lang-toggle { top: -45px; right: 10px; }
-            .main-wrapper { flex-direction: column; }
-            .sidebar {
-                width: 100%; border-right: none; border-bottom: 1px solid var(--border-color);
-                padding: 30px 20px;
-            }
+            .main { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 30px 20px; }
             .content { padding: 25px 20px; }
-            .persona-layout { gap: 15px; }
-            .character-art { max-width: 140px; min-width: 80px; }
+            .art { max-width: 140px; min-width: 80px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <button class="lang-toggle" id="langBtn" onclick="toggleLang()" aria-label="Switch Language">
-            <svg class="lang-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16.5,42.6L32.3,5.5M30,22.4l10.1,2.4M36.3,20.2v3.6M24.7,40c2.6-4,5.7-7.5,13.6-10.7M28.5,26.4c3.6,3.2,6.5,7.2,8.5,11.6M14.8,15h4.9c0,2.7-2.1,4.9-4.8,5,0,0,0,0,0,0-2.8,0-5-2.3-5-5s2.3-5,5-5c.8,0,1.7.2,2.4.6"/>
-                <path d="M38.5,5.5H9.5c-2.2,0-4,1.8-4,4v29c0,2.2,1.8,4,4,4h29c2.2,0,4-1.8,4-4V9.5c0-2.2-1.8-4-4-4Z"/>
-            </svg>
-        </button>
+<div class="wrapper">
+    <button class="lang-toggle" onclick="toggleLang()"><span>文</span>/<span>A</span></button>
 
-        <div class="main-wrapper">
-            <div class="sidebar">
-                <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" alt="Avatar" class="avatar">
-                <h1>YamaiSakuragi</h1>
-                <div class="subtitle">山井樱木</div>
-                
-                <div class="links">
-                    <a href="https://github.com/YamaiSakuragi" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://t.me/ohh676791781366" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                        <span>Sakuragi Group</span>
-                    </a>
-                    <a href="https://t.me/YamaiSakuragi" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                        <span>Telegram Profile</span>
-                    </a>
-                    <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                        <span>Douyin</span>
-                    </a>
-                    <a href="https://x.com/YamaiSakuragi" target="_blank" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
-                        <span>Twitter / X</span>
-                    </a>
-                    <a href="mailto:caiyutaojing695@gmail.com" class="link-item">
-                        <svg class="brand-icon" viewBox="0 0 24 24"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
-                        <span>Email</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="content">
-                <div>
-                    <div class="section-title" data-en="Profile" data-zh="个人简介">Profile</div>
-                    <div class="info-card">
-                        <p data-en="<strong>Role:</strong> Administrator of the ZeroTermux Telegram Group." data-zh="<strong>职务：</strong>ZeroTermux Telegram 群组管理员。">
-                            <strong>Role:</strong> Administrator of the ZeroTermux Telegram Group.
-                        </p>
-                        <p data-en="Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition." data-zh="具备独立完成跨风格视觉设计的能力，涵盖严谨三视图、高完成度平涂立绘以及 Q 版和表情包。画风干净柔和，角色特征具有较高辨识度。">
-                            Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition.
-                        </p>
-                        <p data-en="Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development." data-zh="角色设计不局限于视觉表现，而是结合了结构化的角色矩阵与反差特征，应用于插画、表情包以及潜在的 Live2D/桌宠开发。">
-                            Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development.
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="section-title" data-en="Skills" data-zh="技术栈">Skills</div>
-                    <div class="skills-container">
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash</span>
-                        <span class="skill-tag">Sh</span>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
-                    <div class="info-card">
-                        <div class="persona-layout">
-                            <div class="persona-text">
-                                <p data-en="<strong>Team Mascot:</strong> The official mascot of the team." data-zh="<strong>吉祥物：</strong>作为团队的官方吉祥物。">
-                                    <strong>Team Mascot:</strong> The official mascot of the team.
-                                </p>
-                                <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。">
-                                    <strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.
-                                </p>
-                                <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。">
-                                    <strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.
-                                </p>
-                            </div>
-                            <img src="./3.png" alt="Art" class="character-art" id="characterArt">
-                        </div>
-                    </div>
-                </div>
+    <div class="main">
+        <div class="sidebar">
+            <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="avatar" alt="Avatar">
+            <div class="name">YamaiSakuragi</div>
+            <div class="sub">山井樱木</div>
+            <div class="links">
+                <a href="https://github.com/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" class="icon" alt="GitHub"> GitHub</a>
+                <a href="https://t.me/ohh676791781366" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=telegram.org&sz=64" class="icon" alt="Telegram"> Sakuragi Group</a>
+                <a href="https://t.me/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=telegram.org&sz=64" class="icon" alt="Telegram"> Telegram Profile</a>
+                <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" class="icon" alt="YouTube"> YouTube</a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=douyin.com&sz=64" class="icon" alt="Douyin"> Douyin</a>
+                <a href="https://x.com/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=64" class="icon" alt="X"> Twitter / X</a>
+                <a href="mailto:caiyutaojing695@gmail.com" class="link"><img src="https://www.google.com/s2/favicons?domain=gmail.com&sz=64" class="icon" alt="Email"> Email</a>
             </div>
         </div>
 
-        <div class="footer">
-            <span data-en="Copyright © 2024 YamaiSakuragi. All rights reserved." data-zh="版权所有 © 2024 YamaiSakuragi。保留所有权利。">
-                Copyright © 2024 YamaiSakuragi. All rights reserved.
-            </span>
+        <div class="content">
+            <div>
+                <div class="section-title" data-en="Profile" data-zh="个人简介">Profile</div>
+                <div class="text">
+                    <p data-en="<strong>Role:</strong> Administrator of the ZeroTermux Telegram Group." data-zh="<strong>职务：</strong>ZeroTermux Telegram 群组管理员。"><strong>Role:</strong> Administrator of the ZeroTermux Telegram Group.</p>
+                    <p data-en="Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition." data-zh="具备独立完成跨风格视觉设计的能力，涵盖严谨三视图、高完成度平涂立绘以及 Q 版和表情包。画风干净柔和，角色特征具有较高辨识度。">Capable of independently executing cross-style visual designs, covering everything from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition.</p>
+                    <p data-en="Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development." data-zh="角色设计不局限于视觉表现，而是结合了结构化的角色矩阵与反差特征，应用于插画、表情包以及潜在的 Live2D/桌宠开发。">Character design extends beyond visual representation, incorporating structured character matrices and contrast features for applications in illustrations, stickers, and potential Live2D/desktop pet development.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title" data-en="Skills" data-zh="技术栈">Skills</div>
+                <div class="skills">
+                    <span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Sh</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
+                <div class="layout">
+                    <div class="layout-text text">
+                        <p data-en="<strong>Team Mascot:</strong> The official mascot of the team." data-zh="<strong>吉祥物：</strong>作为团队的官方吉祥物。"><strong>Team Mascot:</strong> The official mascot of the team.</p>
+                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。"><strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.</p>
+                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。"><strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.</p>
+                    </div>
+                    <img src="./3.png" id="artImg" class="art" alt="Art">
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
-        let currentLang = 'en';
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
-            const elements = document.querySelectorAll('[data-en][data-zh]');
-            elements.forEach(el => {
-                el.innerHTML = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-zh');
-            });
-        }
+    <div class="footer">
+        <span data-en="Copyright © 2024 YamaiSakuragi. All rights reserved." data-zh="版权所有 © 2024 YamaiSakuragi。保留所有权利。">Copyright © 2024 YamaiSakuragi. All rights reserved.</span>
+    </div>
+</div>
 
-        document.fonts.ready.then(function () {
-            if (!document.fonts.check('12px CreamFont')) {
-                const allElements = document.querySelectorAll('body *:not(script):not(style):not(svg):not(path):not(button)');
-                allElements.forEach(el => {
-                    if (el.children.length === 0 && el.textContent.trim() !== '') {
-                        el.textContent = ''; 
-                    }
-                });
-                document.body.style.backgroundColor = '#222';
-            }
+<script>
+    let lang = 'en';
+    function toggleLang() {
+        lang = lang === 'en' ? 'zh' : 'en';
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.innerHTML = el.getAttribute('data-' + lang);
         });
+    }
 
-        const img = document.getElementById('characterArt');
-        if (img) {
-            const tempImg = new Image();
-            tempImg.src = img.getAttribute('src');
-            tempImg.onload = function() {
-                img.classList.add('loaded');
-            };
-            tempImg.onerror = function() {
-                img.remove();
-            };
+    document.fonts.ready.then(() => {
+        if (!document.fonts.check('12px CreamFont')) {
+            document.body.innerHTML = '';
+            document.body.style.backgroundColor = '#111';
         }
-    </script>
+    });
+
+    const img = document.getElementById('artImg');
+    if (img) {
+        const test = new Image();
+        test.src = img.src;
+        test.onload = () => img.classList.add('loaded');
+        test.onerror = () => img.remove();
+    }
+</script>
 </body>
 </html>
