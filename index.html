@@ -1,2 +1,137 @@
-<a>1</a>
-<h1>11111</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YamaiSakuragi - Portfolio</title>
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/304915449?v=4?s=400">
+    <style>
+        @font-face { font-family: 'CreamFont'; src: url('./one.ttf') format('truetype'); font-display: block; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'CreamFont', sans-serif; }
+        body { background: #f5f5f7; color: #1d1d1f; display: flex; justify-content: center; padding: 40px 20px; min-height: 100vh; }
+        .wrapper { position: relative; width: 100%; max-width: 900px; }
+        .lang-toggle { position: absolute; top: -35px; right: 0; background: #fff; border: 1px solid #e5e5e5; padding: 6px 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #1d1d1f; }
+        .lang-toggle svg { width: 18px; height: 18px; display: block; }
+        .main { display: flex; background: #fff; border-radius: 20px; border: 1px solid #e5e5e5; overflow: hidden; margin-bottom: 20px; }
+        .sidebar { width: 280px; padding: 40px 30px; border-right: 1px solid #e5e5e5; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+        .avatar { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 15px; border: 3px solid #e5e5e5; object-fit: cover; }
+        .name { font-size: 22px; font-weight: 600; margin-bottom: 4px; text-align: center; }
+        .sub { font-size: 14px; color: #86868b; margin-bottom: 30px; text-align: center; }
+        .links { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+        .link { display: flex; align-items: center; text-decoration: none; color: #1d1d1f; padding: 8px; border-radius: 8px; font-size: 14px; transition: 0.2s; }
+        .link:hover { background: #f0f0f2; }
+        .icon { width: 18px; height: 18px; margin-right: 12px; object-fit: contain; filter: grayscale(1) brightness(0); }
+        .content { padding: 40px; flex: 1; display: flex; flex-direction: column; gap: 30px; min-width: 0; }
+        .section-title { font-size: 16px; font-weight: 600; border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; margin-bottom: 15px; }
+        .text p { font-size: 14px; line-height: 1.8; margin-bottom: 12px; color: #333; }
+        .text p:last-child { margin-bottom: 0; }
+        .text strong { color: #1d1d1f; }
+        .skills { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #f5f5f7; padding: 6px 12px; border-radius: 6px; font-size: 13px; border: 1px solid #e5e5e5; }
+        .layout { display: flex; gap: 20px; align-items: flex-start; }
+        .layout-text { flex: 1; min-width: 0; }
+        .art { width: 100%; max-width: 200px; min-width: 90px; flex-shrink: 1; height: auto; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.08)); border-radius: 12px; opacity: 0; transition: 0.3s; }
+        .art.loaded { opacity: 1; }
+        .footer { text-align: center; font-size: 12px; color: #86868b; }
+        @media (max-width: 768px) {
+            body { padding: 60px 10px 20px 10px; }
+            .main { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 30px 20px; }
+            .content { padding: 25px 20px; }
+            .art { max-width: 140px; min-width: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <button class="lang-toggle" onclick="toggleLang()" aria-label="Toggle language">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16.5,42.6L32.3,5.5M30,22.4l10.1,2.4M36.3,20.2v3.6M24.7,40c2.6-4,5.7-7.5,13.6-10.7M28.5,26.4c3.6,3.2,6.5,7.2,8.5,11.6M14.8,15h4.9c0,2.7-2.1,4.9-4.8,5,0,0,0,0,0,0-2.8,0-5-2.3-5-5s2.3-5,5-5c.8,0,1.7.2,2.4.6"/>
+            <path d="M38.5,5.5H9.5c-2.2,0-4,1.8-4,4v29c0,2.2,1.8,4,4,4h29c2.2,0,4-1.8,4-4V9.5c0-2.2-1.8-4-4-4Z"/>
+        </svg>
+    </button>
+
+    <div class="main">
+        <div class="sidebar">
+            <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" class="avatar" alt="Avatar">
+            <div class="name">YamaiSakuragi</div>
+            <div class="sub">山井樱木</div>
+            <div class="links">
+                <a href="https://github.com/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" class="icon" alt="GitHub"> GitHub</a>
+                <a href="https://t.me/ohh676791781366" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=telegram.org&sz=64" class="icon" alt="Telegram"> Sakuragi Group</a>
+                <a href="https://t.me/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=telegram.org&sz=64" class="icon" alt="Telegram"> Telegram Profile</a>
+                <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=64" class="icon" alt="YouTube"> YouTube</a>
+                <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=douyin.com&sz=64" class="icon" alt="Douyin"> Douyin</a>
+                <a href="https://x.com/YamaiSakuragi" target="_blank" class="link"><img src="https://www.google.com/s2/favicons?domain=x.com&sz=64" class="icon" alt="X"> Twitter / X</a>
+                <a href="mailto:caiyutaojing695@gmail.com" class="link"><img src="https://www.google.com/s2/favicons?domain=gmail.com&sz=64" class="icon" alt="Email"> Email</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <div>
+                <div class="section-title" data-en="Technical Development &amp; Experience" data-zh="技术开发与履历">Technical Development &amp; Experience</div>
+                <div class="text">
+                    <p data-en="<strong>Role:</strong> Administrator of the ZeroTermux Telegram Group." data-zh="<strong>职务：</strong>ZeroTermux Telegram 群组管理员。"><strong>Role:</strong> Administrator of the ZeroTermux Telegram Group.</p>
+                    <p data-en="<strong>Languages:</strong> C, C++, Python, Bash, HTML, CSS, JavaScript, Smali. Has been exposed to various other programming languages." data-zh="<strong>编程语言：</strong>C、C++、Python、Bash、HTML、CSS、JavaScript、Smali。接触过多种其他编程语言。"><strong>Languages:</strong> C, C++, Python, Bash, HTML, CSS, JavaScript, Smali. Has been exposed to various other programming languages.</p>
+                    <p data-en="<strong>Development:</strong> C++ GTK development, Shell script development, Python script development, Linux program development, Android app repackaging and development (Smali decompiled output analysis), Android ADB debugging." data-zh="<strong>开发方向与经历：</strong>C++ GTK 开发、Shell 脚本开发、Python 脚本开发、Linux 程序开发、Android 应用改包与开发（Smali 反编译产物分析）、Android ADB 调试。"><strong>Development:</strong> C++ GTK development, Shell script development, Python script development, Linux program development, Android app repackaging and development (Smali decompiled output analysis), Android ADB debugging.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title" data-en="Skills" data-zh="技术栈">Skills</div>
+                <div class="skills">
+                    <span class="tag">C++</span><span class="tag">C</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Sh</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title" data-en="Non-Technical (Interests &amp; Specialties)" data-zh="非技术领域（兴趣与特长）">Non-Technical (Interests &amp; Specialties)</div>
+                <div class="text">
+                    <p data-en="<strong>Drawing:</strong> Illustrator." data-zh="<strong>绘画：</strong>画师。"><strong>Drawing:</strong> Illustrator.</p>
+                    <p data-en="<strong>Games:</strong> Galgame enthusiast." data-zh="<strong>游戏：</strong>Galgame 爱好者。"><strong>Games:</strong> Galgame enthusiast.</p>
+                    <p data-en="<strong>Music:</strong> Vocaloid enthusiast." data-zh="<strong>音乐：</strong>术力口（Vocaloid）爱好者。"><strong>Music:</strong> Vocaloid enthusiast.</p>
+                    <p data-en="<strong>Animation:</strong> MMD (MikuMikuDance) animation production." data-zh="<strong>动画：</strong>MMD（MikuMikuDance）动画制作。"><strong>Animation:</strong> MMD (MikuMikuDance) animation production.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
+                <div class="layout">
+                    <div class="layout-text text">
+                        <p data-en="<strong>Team Mascot:</strong> The official mascot of the team." data-zh="<strong>吉祥物：</strong>作为团队的官方吉祥物。"><strong>Team Mascot:</strong> The official mascot of the team.</p>
+                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。"><strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.</p>
+                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。"><strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.</p>
+                    </div>
+                    <img src="./3.png" id="artImg" class="art" alt="Art">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span data-en="Copyright © 2024 YamaiSakuragi. All rights reserved." data-zh="版权所有 © 2024 YamaiSakuragi。保留所有权利。">Copyright © 2024 YamaiSakuragi. All rights reserved.</span>
+    </div>
+</div>
+
+<script>
+    let lang = 'en';
+    function toggleLang() {
+        lang = lang === 'en' ? 'zh' : 'en';
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.innerHTML = el.getAttribute('data-' + lang);
+        });
+    }
+
+    // 注意：原版的字体检测自毁代码（会清空页面变黑）已被彻底移除，不再导致黑屏。
+
+    const img = document.getElementById('artImg');
+    if (img) {
+        const test = new Image();
+        test.src = img.src;
+        test.onload = () => img.classList.add('loaded');
+        test.onerror = () => img.remove();
+    }
+</script>
+</body>
+</html>
