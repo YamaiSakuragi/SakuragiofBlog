@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YamaiSakuragi - Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --border-color: #e5e5e5;
+            --hover-bg: #f0f0f2;
+            --badge-bg: #1d1d1f;
+            --badge-text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* 外层包装，用于定位语言切换按钮 */
+        .wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* 语言切换按钮 (SVG 图标) */
+        .lang-toggle {
+            position: absolute;
+            top: -35px;
+            right: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+        }
+
+        .lang-toggle:hover {
+            background-color: var(--hover-bg);
+            border-color: #d1d1d6;
+        }
+
+        /* 语言图标样式 */
+        .lang-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--text-main);
+            display: block;
+        }
+
+        /* 左右分栏主容器 */
+        .main-wrapper {
+            display: flex;
+            width: 100%;
+            background-color: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        /* 左侧边栏 */
+        .sidebar {
+            width: 320px;
+            padding: 40px 30px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        /* 身份徽章 */
+        .admin-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* 技能标签 */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        /* 联系方式列表 */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+            background-color: var(--card-bg);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            background-color: var(--hover-bg);
+            border-color: #d1d1d6;
+            transform: translateX(3px);
+        }
+
+        .brand-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 12px;
+            object-fit: contain;
+        }
+
+        .link-item .name {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        /* 右侧主内容区 */
+        .content {
+            padding: 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
+            margin-left: 15px;
+        }
+
+        .info-card {
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .info-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .info-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card strong {
+            color: var(--text-main);
+        }
+
+        /* 响应式：手机端上下排列 */
+        @media (max-width: 768px) {
+            body {
+                padding: 60px 10px 20px 10px;
+            }
+            .wrapper {
+                max-width: 100%;
+            }
+            .lang-toggle {
+                top: -45px;
+                right: 10px;
+            }
+            .main-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 30px 20px;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <!-- 多语言切换按钮 (SVG 绘制) -->
+        <button class="lang-toggle" id="langBtn" onclick="toggleLang()" aria-label="Switch Language">
+            <svg class="lang-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16.5,42.6L32.3,5.5M30,22.4l10.1,2.4M36.3,20.2v3.6M24.7,40c2.6-4,5.7-7.5,13.6-10.7M28.5,26.4c3.6,3.2,6.5,7.2,8.5,11.6M14.8,15h4.9c0,2.7-2.1,4.9-4.8,5,0,0,0,0,0,0-2.8,0-5-2.3-5-5s2.3-5,5-5c.8,0,1.7.2,2.4.6"/>
+                <path d="M38.5,5.5H9.5c-2.2,0-4,1.8-4,4v29c0,2.2,1.8,4,4,4h29c2.2,0,4-1.8,4-4V9.5c0-2.2-1.8-4-4-4Z"/>
+            </svg>
+        </button>
+
+        <div class="main-wrapper">
+            <!-- 左侧栏：头像、身份、技能、链接 -->
+            <div class="sidebar">
+                <img src="https://avatars.githubusercontent.com/u/304915449?v=4?s=400" alt="Avatar" class="avatar">
+                <h1>YamaiSakuragi</h1>
+                
+                <!-- 身份徽章 -->
+                <div class="admin-badge" data-en="Admin of ZT (ZeroTermux) Telegram Group" data-zh="ZeroTermux (ZT) 社区 纸飞机交流群 大管理员">
+                    Admin of ZT (ZeroTermux) Telegram Group
+                </div>
+                
+                <div class="subtitle" data-en="Yamai Sakuragi · Creator" data-zh="山井樱木 · 创作者">
+                    Yamai Sakuragi · Creator
+                </div>
+                
+                <div class="skills">
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">C</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Sh</span>
+                </div>
+
+                <div class="links">
+                    <a href="https://github.com/YamaiSakuragi" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/github/000000" class="brand-icon" alt="GitHub">
+                        <span class="name">GitHub</span>
+                    </a>
+                    <a href="https://t.me/ohh676791781366" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/telegram/000000" class="brand-icon" alt="Telegram">
+                        <span class="name">Sakuragi Group</span>
+                    </a>
+                    <a href="https://t.me/YamaiSakuragi" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/telegram/000000" class="brand-icon" alt="Telegram">
+                        <span class="name">Telegram Profile</span>
+                    </a>
+                    <a href="https://www.youtube.com/@YamaiSakuragi" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/youtube/000000" class="brand-icon" alt="YouTube">
+                        <span class="name">YouTube</span>
+                    </a>
+                    <a href="https://www.douyin.com/user/MS4wLjABAAAADj4DdCo7-GyxjWP-2E15cOP6BJ4p-zCBA8z3vNin08ta5WO7NYu5h-BzTHXNh-WK" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/tiktok/000000" class="brand-icon" alt="Douyin">
+                        <span class="name">Douyin</span>
+                    </a>
+                    <a href="https://x.com/YamaiSakuragi" target="_blank" class="link-item">
+                        <img src="https://cdn.simpleicons.org/x/000000" class="brand-icon" alt="X">
+                        <span class="name">Twitter / X</span>
+                    </a>
+                    <a href="mailto:caiyutaojing695@gmail.com" class="link-item">
+                        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span class="name">Email</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 右侧主内容：总结介绍 -->
+            <div class="content">
+                
+                <div>
+                    <div class="section-title" data-en="About The Creator" data-zh="关于创作者">About The Creator</div>
+                    <div class="info-card">
+                        <h3 data-en="Creator Profile" data-zh="创作者档案">Creator Profile</h3>
+                        <p data-en="<strong>Role:</strong> Head Admin of ZeroTermux (ZT) Telegram Community." data-zh="<strong>身份：</strong>ZeroTermux (ZT) 社区 纸飞机交流群 大管理员。">
+                            <strong>Role:</strong> Head Admin of ZeroTermux (ZT) Telegram Community.
+                        </p>
+                        <p data-en="Able to independently complete cross-style creations ranging from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition." data-zh="具备完善的角色设计能力，能够独立完成从严谨三视图、高完成度平涂立绘，到Q版及表情包的跨风格创作。画风干净柔和，角色辨识度高。">
+                            Able to independently complete cross-style creations ranging from rigorous three-view drawings and high-completion flat illustrations to chibi and sticker packs. The art style is clean and soft, with high character recognition.
+                        </p>
+                        <p data-en="Character shaping is not limited to visual appearances but endows the character with a deep soul and sense of contrast, building a complete character matrix (including illustrations, stickers, and potential Live2D/desktop pet foundations)." data-zh="角色塑造不局限于视觉表象，而是赋予了角色深刻的灵魂与反差感，并以此构建了完整的角色矩阵（涵盖插画、表情包，以及潜在的Live2D/桌宠开发底稿）。">
+                            Character shaping is not limited to visual appearances but endows the character with a deep soul and sense of contrast, building a complete character matrix (including illustrations, stickers, and potential Live2D/desktop pet foundations).
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-title" data-en="Persona Profile" data-zh="自设档案">Persona Profile</div>
+                    <div class="info-card">
+                        <h3 data-en="Yamai Sakuragi" data-zh="山井樱木 (Yamai Sakuragi)">Yamai Sakuragi</h3>
+                        <p data-en="<strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel." data-zh="<strong>视觉形象：</strong>极简、清冷的黑白灰冷色调。深灰黑长卷发、白色宽松外套、黑色百褶裙、白色过膝袜。头顶有类似猫耳的装饰，眼神深邃游离，呈现出安静、内向甚至带点社恐的“人偶感”。">
+                            <strong>Visuals:</strong> Minimalist, cool black/white/grey tones. Dark grey long curly hair, white loose coat, black pleated skirt, white over-knee socks. Cat ear decorations on head, deep wandering eyes, presenting a quiet, introverted 'doll-like' feel.
+                        </p>
+                        <p data-en="<strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen." data-zh="<strong>核心设定：</strong>作为创作者在二次元世界的分身，她带有强烈的自我投射。拥有打破第四面墙的元叙事（Meta）属性，她知道自己身处屏幕之内，知道自己是被创造出来的。她的“水仙”对象是屏幕外三次元的创作者，形成了绝对的、唯一的跨次元共生关系。">
+                            <strong>Core:</strong> As a 2D avatar of the creator, she has a meta-narrative attribute that breaks the fourth wall. She knows she is inside the screen and was created. She holds a narcissistic, absolute, and unique bond with the creator outside the screen.
+                        </p>
+                        <p data-en="<strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror." data-zh="<strong>反差萌：</strong>安静内向的外表下，隐藏着举着“禁止”牌吐槽的活泼内核，是一面微甜又略带执念的赛博镜子。">
+                            <strong>Contrast:</strong> Beneath her quiet exterior hides a lively core holding a 'Prohibited' sign to complain, making her a slightly sweet yet obsessive cyber mirror.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 多语言切换脚本 -->
+    <script>
+        // 默认语言：英文 (en)
+        let currentLang = 'en';
+
+        function toggleLang() {
+            // 切换语言状态
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+
+            // 获取所有带有 data-en 和 data-zh 属性的元素
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+
+            elements.forEach(el => {
+                if (currentLang === 'en') {
+                    el.innerHTML = el.getAttribute('data-en');
+                } else {
+                    el.innerHTML = el.getAttribute('data-zh');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
